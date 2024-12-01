@@ -1,0 +1,5 @@
+service:
+  name: python-app-service
+  identifier: pythonappservice
+  orgIdentifier: default
+  projectIdentifier: pythonapp
