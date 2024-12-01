@@ -32,6 +32,7 @@ pipeline:
                   identifier: setupvirtualenvironment
                   name: setup virtual environment
                   spec:
+                    shell: Sh
                     command: |-
                       python3 -m venv .venv
                       . .venv/bin/activate
@@ -43,17 +44,19 @@ pipeline:
                   identifier: dockerbuild
                   name: docker_build
                   spec:
-                    caching: true
-                    connectorRef: <+input>
-                    repo: hello/world
+                    connectorRef: <+input>.allowedValues(account.DockerhubConnector)
+                    repo: gsajwan/sample-app
                     tags:
                       - latest
+                    caching: true
+                    dockerfile: app/Dockerfile
+                    context: app
                   timeout: ""
                   type: BuildAndPushDockerRegistry
           platform:
-            arch: Amd64
             os: MacOS
+            arch: Amd64
           runtime:
-            spec: {}
             type: Docker
+            spec: {}
         type: CI
