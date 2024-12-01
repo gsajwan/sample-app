@@ -32,7 +32,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: account.DockerhubConnector
-                    repo: gsajwan/sample-app/app
+                    repo: gsajwan/sample-app
                     tags:
                       - python-app
                     caching: true
