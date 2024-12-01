@@ -3,3 +3,23 @@ service:
   identifier: pythonappservice
   orgIdentifier: default
   projectIdentifier: pythonapp
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: pythonapp
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: account.Github
+                  gitFetchType: Branch
+                  paths:
+                    - k8s/deployment.yaml
+                    - "k8s/service.yaml "
+                  repoName: gsajwan/sample-app
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
