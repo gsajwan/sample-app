@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_gsajwan_sample_app_1733026498067-push-trigger-input-set
+  identifier: Build_gsajwan_sample_app_1733026498067pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: pythonapp
+  pipeline:
+    identifier: Build_gsajwan_sample_app_1733026498067
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
