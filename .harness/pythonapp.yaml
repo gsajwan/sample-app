@@ -1,0 +1,38 @@
+pipeline:
+  name: python-app
+  identifier: pythonapp
+  projectIdentifier: pythonapp
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github
+        repoName: gsajwan/sample-app
+        build: <+input>
+  stages:
+    - stage:
+        name: build-docker-image
+        identifier: builddockerimage
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.DockerhubConnector
+                    repo: gsajwan/sample-app
+                    tags:
+                      - python-app
+                    caching: true
