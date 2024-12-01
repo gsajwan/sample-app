@@ -35,6 +35,7 @@ pipeline:
                     repo: gsajwan/sample-app
                     tags:
                       - latest
+                      - "1.0"
                     caching: true
     - stage:
         name: Deploy
