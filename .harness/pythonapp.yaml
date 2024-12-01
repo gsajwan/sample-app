@@ -37,6 +37,7 @@ pipeline:
                       - latest
                       - "1.0"
                     caching: true
+                    dockerfile: app/Dockerfile
     - stage:
         name: Deploy
         identifier: Deploy
