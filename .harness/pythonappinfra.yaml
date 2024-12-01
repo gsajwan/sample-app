@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: python-app-infra
+  identifier: pythonappinfra
+  orgIdentifier: default
+  projectIdentifier: pythonapp
+  environmentRef: production
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.aks
+    namespace: digitalai
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
