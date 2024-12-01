@@ -34,7 +34,7 @@ pipeline:
                     connectorRef: account.DockerhubConnector
                     repo: gsajwan/sample-app
                     tags:
-                      - python-app
+                      - latest
                     caching: true
     - stage:
         name: Deploy
