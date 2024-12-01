@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy the application code and install dependencies
 COPY requirements.txt .
+RUN pip install --upgrade flask
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
