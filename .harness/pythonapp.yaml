@@ -18,12 +18,6 @@ pipeline:
         type: CI
         spec:
           cloneCodebase: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Docker
-            spec: {}
           execution:
             steps:
               - step:
@@ -39,6 +33,14 @@ pipeline:
                     caching: true
                     dockerfile: app/Dockerfile
                     context: app
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: account.aks
+              namespace: default
+              automountServiceAccountToken: true
+              nodeSelector: {}
+              os: Linux
     - stage:
         name: Deploy
         identifier: Deploy
