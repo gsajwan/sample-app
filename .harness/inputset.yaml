@@ -1,0 +1,14 @@
+inputSet:
+  name: inputset
+  identifier: inputset
+  orgIdentifier: default
+  projectIdentifier: pythonapp
+  pipeline:
+    identifier: pythonapp
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
